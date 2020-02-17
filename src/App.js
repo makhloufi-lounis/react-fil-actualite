@@ -1,7 +1,7 @@
 import React from 'react';
 import FluxActualite from './FluxActualite';
 import { actualites } from './actualites';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +25,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <FluxActualite actualites={ actualites } />
+          <Switch>
+              <Route path="/" component={() => <FluxActualite actualites={ actualites }/> }/>
+          </Switch>
         </div>
       </BrowserRouter>
     );
