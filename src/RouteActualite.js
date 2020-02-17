@@ -1,5 +1,6 @@
 import React from 'react';
 import Actualite from './Actualite';
+import { Link } from 'react-router-dom';
 //import Actualite from './Actualite';
 
 class RouteActualite extends React.Component {
@@ -13,6 +14,7 @@ class RouteActualite extends React.Component {
     const result =  actualites.filter((actualite) => actualite.id === match.params.id);
     return (
         <div>
+            <Link to="/" style={{marginBottom:'30px', color:'green'}}>Retour aux actualités</Link>
             <Actualite actualite={result[0]} />
         </div>
     );
