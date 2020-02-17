@@ -2,6 +2,7 @@ import React from 'react';
 import FluxActualite from './FluxActualite';
 import { actualites } from './actualites';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import RouteActualite from './RouteActualite';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,11 +23,14 @@ class App extends React.Component {
 
   render() {
     const { actualites } = this.state;
+    // get this.props.match
+    // const { match } = this.props;
     return (
       <BrowserRouter>
         <div className="App">
           <Switch>
-              <Route path="/" component={() => <FluxActualite actualites={ actualites }/> }/>
+              <Route exact path="/" component={() => <FluxActualite actualites={ actualites }/> }/>
+              <Route exact path="/actualite/:id" component={({match}) => <RouteActualite actualites={ actualites } match={match}/> }/>
           </Switch>
         </div>
       </BrowserRouter>
