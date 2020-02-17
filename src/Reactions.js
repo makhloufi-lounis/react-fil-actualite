@@ -1,7 +1,7 @@
 import React from 'react';
 import { reactionEmojis } from './actualites';
 import classnames from 'classnames';
-
+import uniqid from 'uniqid';
 class Reactions extends React.Component {
 
     constructor(props) {
@@ -14,13 +14,14 @@ class Reactions extends React.Component {
         this.setState({reactionType : reactionType})
     }
 
-    renderReaction([reactionType, compteur]){
+    renderReaction([reactionType, compteur], key){
         const isSelectedReaction = (this.state.reactionType === reactionType);
         if(isSelectedReaction) {
             compteur++;
         }
         return (
             <div 
+                key={uniqid()}
                 className={classnames(
                     'Reactions__reaction',
                     {'Reactions__reaction--selected' : isSelectedReaction}
@@ -36,7 +37,7 @@ class Reactions extends React.Component {
         const { reactions } = this.props;
         return (
             <div className="Reactions">
-                {Object.entries(reactions).map((reaction) => this.renderReaction(reaction))}
+                {Object.entries(reactions).map((reaction, index) => this.renderReaction(reaction, index))}
             </div>
         );
     }

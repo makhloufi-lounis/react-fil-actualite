@@ -1,6 +1,6 @@
 import React from 'react';
 import Commentaire from './Commentaire';
-
+import uniqid from 'uniqid';
 class ListeComentaires extends React.Component {
     render() {
         const { commentaires } = this.props;
@@ -11,7 +11,7 @@ class ListeComentaires extends React.Component {
 
         return (
             <div className="ListeComentaires">
-                {commentaires.map(commentaire => < Commentaire commentaire={commentaire} />)}
+                {commentaires.map(commentaire => < Commentaire key={uniqid()} commentaire={commentaire} />)}
             </div>
         );
     }

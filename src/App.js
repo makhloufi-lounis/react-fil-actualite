@@ -10,6 +10,7 @@ class App extends React.Component {
     }
   }
 
+  //componentWillMount is not recommended for use set initial state in the constructor
   componentWillMount() {
       /*fetch('http://localhost:3000/actualites')
       .then((response) => response.json())
