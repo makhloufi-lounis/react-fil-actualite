@@ -1,6 +1,7 @@
 import React from 'react';
 import FluxActualite from './FluxActualite';
 import { actualites } from './actualites';
+import {BrowserRouter} from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,9 +23,11 @@ class App extends React.Component {
   render() {
     const { actualites } = this.state;
     return (
-      <div className="App">
-        <FluxActualite actualites={ actualites } />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <FluxActualite actualites={ actualites } />
+        </div>
+      </BrowserRouter>
     );
   }
 }
