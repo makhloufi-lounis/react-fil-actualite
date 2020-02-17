@@ -6,10 +6,12 @@ class Commentaire extends React.Component {
     render () {
         const {auteur, datePublication, message, actualiteId} = this.props.commentaire;
         return (
-            <div className="Commentaire">
-                <HeaderMessage auteur={auteur} datePublication={datePublication} id={actualiteId}/> 
-                <Message message={message} />
-            </div>
+            <React.Fragment>
+                <div className="Commentaire">
+                    <HeaderMessage auteur={auteur} datePublication={datePublication} id={actualiteId}/> 
+                    <Message message={message} />
+                </div>
+            </React.Fragment>
         );
     }
 }

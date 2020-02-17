@@ -6,8 +6,11 @@ class Reactions extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { reactionType: null };
+        this.state = { 
+            reactionType: null
+        };
     }
+    
 
     selectReaction(reactionType){
         //or this.setState({ reactionType }) ES6
